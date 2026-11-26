@@ -176,7 +176,6 @@ final class GameApplication extends JPanel {
         deleteActiveProfile();
     }
 
-    // Called only after the active player confirms deletion in the UI.
     void deleteActiveProfile() {
         if (busy || activeName == null) return;
         String name = activeName;
