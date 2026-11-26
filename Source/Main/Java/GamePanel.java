@@ -241,7 +241,6 @@ final class GamePanel extends JPanel implements ActionListener {
             return;
         }
 
-        // The base map respawns the student if they fall below the screen.
         if (player.y > GameConfig.SCREEN_HEIGHT + 100) {
             resetPlayerPosition();
             return;
@@ -286,8 +285,6 @@ final class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        // Small steps let the student walk across a slightly curved sprite roof.
-        // Large vertical sides still block movement normally.
         if (player.onGround && Math.abs(newX - (oldX + dx)) > 0.01) {
             double targetX = Math.max(0,
                     Math.min(GameConfig.WORLD_WIDTH - GameConfig.PLAYER_WIDTH, oldX + dx));
