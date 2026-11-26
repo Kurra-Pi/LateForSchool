@@ -136,8 +136,6 @@ final class JdbcRecordStore implements RecordStore {
                 statement.executeUpdate();
                 return new PlayerRecord(name, null, null, 0);
             } catch (SQLException exception) {
-                // A simultaneous session may have just created this same normalized name.
-                // Oracle rolls back only this failed statement, so re-select and lock the row.
                 if (exception.getErrorCode() != 1) throw exception;
             }
         }
